@@ -1,12 +1,12 @@
-
+c1
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
     <title>Bootswatch: Slate</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="./bootstrap.css" media="screen">
-    <link rel="stylesheet" href="../assets/css/bootswatch.min.css">
+    <link rel="stylesheet" href="bootstrap.css" media="screen">
+    <link rel="stylesheet" href="bootswatch.min.css">
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
       <script src="../bower_components/html5shiv/dist/html5shiv.js"></script>
@@ -73,8 +73,8 @@
             <li class="dropdown">
               <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="download">Download <span class="caret"></span></a>
               <ul class="dropdown-menu" aria-labelledby="download">
-                <li><a href="./bootstrap.min.css">bootstrap.min.css</a></li>
-                <li><a href="./bootstrap.css">bootstrap.css</a></li>
+                <li><a href="/bootswatch/bootstrap.min.css">bootstrap.min.css</a></li>
+                <li><a href="/bootswatch/bootstrap.css">bootstrap.css</a></li>
                 <li class="divider"></li>
                 <li><a href="./variables.less">variables.less</a></li>
                 <li><a href="./bootswatch.less">bootswatch.less</a></li>
@@ -1278,7 +1278,7 @@
 
 
     <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
-    <script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script src="../assets/js/bootswatch.js"></script>
+    <script src="bootstrap.min.js"></script>
+    <script src="bootswatch.js"></script>
   </body>
 </html>
