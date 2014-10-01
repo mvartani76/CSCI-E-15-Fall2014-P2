@@ -259,102 +259,6 @@
 
           </div>
         </div>
-
-        <!-- Blockquotes -->
-
-        <div class="row">
-          <div class="col-lg-12">
-            <h2 id="type-blockquotes">Blockquotes</h2>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-lg-6">
-            <div class="bs-component">
-              <blockquote>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-                <small>Someone famous in <cite title="Source Title">Source Title</cite></small>
-              </blockquote>
-            </div>
-          </div>
-          <div class="col-lg-6">
-            <div class="bs-component">
-              <blockquote class="pull-right">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-                <small>Someone famous in <cite title="Source Title">Source Title</cite></small>
-              </blockquote>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Tables
-      ================================================== -->
-      <div class="bs-docs-section">
-
-        <div class="row">
-          <div class="col-lg-12">
-            <div class="page-header">
-              <h1 id="tables">Tables</h1>
-            </div>
-
-            <div class="bs-component">
-              <table class="table table-striped table-hover ">
-                <thead>
-                  <tr>
-                    <th>#</th>
-                    <th>Column heading</th>
-                    <th>Column heading</th>
-                    <th>Column heading</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>1</td>
-                    <td>Column content</td>
-                    <td>Column content</td>
-                    <td>Column content</td>
-                  </tr>
-                  <tr>
-                    <td>2</td>
-                    <td>Column content</td>
-                    <td>Column content</td>
-                    <td>Column content</td>
-                  </tr>
-                  <tr class="info">
-                    <td>3</td>
-                    <td>Column content</td>
-                    <td>Column content</td>
-                    <td>Column content</td>
-                  </tr>
-                  <tr class="success">
-                    <td>4</td>
-                    <td>Column content</td>
-                    <td>Column content</td>
-                    <td>Column content</td>
-                  </tr>
-                  <tr class="danger">
-                    <td>5</td>
-                    <td>Column content</td>
-                    <td>Column content</td>
-                    <td>Column content</td>
-                  </tr>
-                  <tr class="warning">
-                    <td>6</td>
-                    <td>Column content</td>
-                    <td>Column content</td>
-                    <td>Column content</td>
-                  </tr>
-                  <tr class="active">
-                    <td>7</td>
-                    <td>Column content</td>
-                    <td>Column content</td>
-                    <td>Column content</td>
-                  </tr>
-                </tbody>
-              </table> 
-            </div><!-- /example -->
-          </div>
-        </div>
       </div>
 
       <!-- Forms
@@ -373,52 +277,12 @@
             <div class="well bs-component">
               <form class="form-horizontal">
                 <fieldset>
-                  <legend>Legend</legend>
+                  <legend>Password Parameters</legend>
+
                   <div class="form-group">
-                    <label for="inputEmail" class="col-lg-2 control-label">Email</label>
-                    <div class="col-lg-10">
-                      <input type="text" class="form-control" id="inputEmail" placeholder="Email">
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label for="inputPassword" class="col-lg-2 control-label">Password</label>
-                    <div class="col-lg-10">
-                      <input type="password" class="form-control" id="inputPassword" placeholder="Password">
-                      <div class="checkbox">
-                        <label>
-                          <input type="checkbox"> Checkbox
-                        </label>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label for="textArea" class="col-lg-2 control-label">Textarea</label>
-                    <div class="col-lg-10">
-                      <textarea class="form-control" rows="3" id="textArea"></textarea>
-                      <span class="help-block">A longer block of help text that breaks onto a new line and may extend beyond one line.</span>
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label class="col-lg-2 control-label">Radios</label>
-                    <div class="col-lg-10">
-                      <div class="radio">
-                        <label>
-                          <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked="">
-                          Option one is this
-                        </label>
-                      </div>
-                      <div class="radio">
-                        <label>
-                          <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
-                          Option two can be something else
-                        </label>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label for="select" class="col-lg-2 control-label">Number of Words</label>
-                    <div class="col-lg-10">
-                      <select class="form-control" id="select">
+                    <label for="select1" class="col-lg-4 control-label">Number of Words</label>
+                    <div class="col-lg-3">
+                      <select class="form-control" id="select1">
                         <option>1</option>
                         <option>2</option>
                         <option>3</option>
@@ -430,9 +294,12 @@
                         <option>9</option>
                         <option>10</option>
                       </select>
-                      <br>
-                    <label for="select" class="col-lg-2 control-label">Number of Numbers</label>
-                      <select class="form-control" id="select">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="select2" class="col-lg-4 control-label">Number of Numbers</label>
+                    <div class="col-lg-3">
+                      <select class="form-control" id="select2">
                         <option>0</option>
                         <option>1</option>
                         <option>2</option>
@@ -445,7 +312,40 @@
                         <option>9</option>
                         <option>10</option>
                       </select>
-
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-lg-4 control-label">Special Characters?</label>
+                    <div class="col-lg-10">
+                      <div class="radio">
+                        <label>
+                          <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked="">
+                          Yes
+                        </label>
+                      </div>
+                      <div class="radio">
+                        <label>
+                          <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+                          No
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-lg-4 control-label">Capitalize First Letter?</label>
+                    <div class="col-lg-10">
+                      <div class="radio">
+                        <label>
+                          <input type="radio" name="optionsRadios1" id="optionsRadios3" value="option3" checked="">
+                          Yes
+                        </label>
+                      </div>
+                      <div class="radio">
+                        <label>
+                          <input type="radio" name="optionsRadios1" id="optionsRadios4" value="option2">
+                          No
+                        </label>
+                      </div>
                     </div>
                   </div>
                   <div class="form-group">
@@ -458,9 +358,12 @@
               </form>
             </div>
           </div>
-          <div class="col-lg-4 col-lg-offset-1">
 
-              <form class="bs-component">
+
+          <div class="col-lg-4 col-lg-offset-1">
+            <div class="bs-component">
+              <form class="form-horizontal">
+                  <legend>Password Outputs<legend>
                 <div class="form-group">
                   <label class="control-label" for="focusedInput">Focused input</label>
                   <input class="form-control" id="focusedInput" type="text" value="This is focused...">
@@ -512,7 +415,7 @@
                   </div>
                 </div>
               </form>
-
+            </div>
           </div>
         </div>
       </div>
@@ -1012,66 +915,6 @@
               <div class="well well-lg">
                 Look, I'm in a large well!
               </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Dialogs
-      ================================================== -->
-      <div class="bs-docs-section">
-
-        <div class="row">
-          <div class="col-lg-12">
-            <div class="page-header">
-              <h1 id="tables">Dialogs</h1>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-lg-6">
-            <h2>Modals</h2>
-            <div class="bs-component">
-              <div class="modal">
-                <div class="modal-dialog">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                      <h4 class="modal-title">Modal title</h4>
-                    </div>
-                    <div class="modal-body">
-                      <p>One fine body…</p>
-                    </div>
-                    <div class="modal-footer">
-                      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                      <button type="button" class="btn btn-primary">Save changes</button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-6">
-            <h2>Popovers</h2>
-            <div class="bs-component">
-              <button type="button" class="btn btn-default" data-container="body" data-toggle="popover" data-placement="left" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">Left</button>
-
-              <button type="button" class="btn btn-default" data-container="body" data-toggle="popover" data-placement="top" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">Top</button>
-
-              <button type="button" class="btn btn-default" data-container="body" data-toggle="popover" data-placement="bottom" data-content="Vivamus
-              sagittis lacus vel augue laoreet rutrum faucibus.">Bottom</button>
-
-              <button type="button" class="btn btn-default" data-container="body" data-toggle="popover" data-placement="right" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">Right</button>
-            </div>
-            <h2>Tooltips</h2>
-            <div class="bs-component">
-              <button type="button" class="btn btn-default" data-toggle="tooltip" data-placement="left" title="" data-original-title="Tooltip on left">Left</button>
-
-              <button type="button" class="btn btn-default" data-toggle="tooltip" data-placement="top" title="" data-original-title="Tooltip on top">Top</button>
-
-              <button type="button" class="btn btn-default" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Tooltip on bottom">Bottom</button>
-
-              <button type="button" class="btn btn-default" data-toggle="tooltip" data-placement="right" title="" data-original-title="Tooltip on right">Right</button>
             </div>
           </div>
         </div>
