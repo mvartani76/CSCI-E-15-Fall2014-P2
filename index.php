@@ -363,17 +363,6 @@
           </div>
         </div>
       </div>
-      <pre>
-      <?php
-
-      //$passout=generate_password($NumWords,$Separator,$NumNums,$WordLengthMin,$WordLengthMax);
-      $passout=generate_password($NumWords,$Separator,$NumNums,3,6,$CapWords,$NumChars);
-      echo "NumWords = $NumWords";
-      echo "NumNums = $NumNums";
-      //print_r($passout);
-      ?>
-    </pre>
-
 
       <footer>
         <div class="row">
