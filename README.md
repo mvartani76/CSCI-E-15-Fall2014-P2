@@ -12,10 +12,12 @@ As a remote student, my demo is located in jing at the following location
 ## Details for Teaching Team
 
 I took the following challenges for this assignment.
-1.) Added a dropdown box to choose how many special characters to add. I had these special characters appended to the end of the word.
-2.) Added a dropdown box to choose between different word separators. The three options were "-", "&nbsp;", and "_".
-3.) Added a couple dropdown boxes to determine the minimum and maximum length of the words in the passphrase. Within the passprhase, these were chosen randomly.
-4.) Added the ability to have different capitalization options using radio buttons.
+<ol>
+	<li>Added a dropdown box to choose how many special characters to add. I had these special characters appended to the end of the word.</li>
+	<li>Added a dropdown box to choose between different word separators. The three options were "-", "&nbsp;", and "_".</li>
+	<li>Added a couple dropdown boxes to determine the minimum and maximum length of the words in the passphrase. Within the passprhase, these were chosen randomly.</li>
+	<li>Added the ability to have different capitalization options using radio buttons.</li>
+</ol>
 
 Code validates (HTML5 -- a few warnings but no errors) at http://validator.w3.org/
 
