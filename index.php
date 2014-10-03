@@ -99,13 +99,15 @@
                                             and HTML/CSS for the front end language for the form input/parameters and display of generated passwords. There is also some javascript and
                                             jQuery added in for some visual effects.</p>
                   <h3>Bootstrap</h3>
-                    <p class="text-danger">   A simple, single flat page was employed using the following free bootstrap template called Bootswatch designed by Thomas Park with the source URL located here
+                    <p class="text-danger"> A simple, single flat page was employed using the following free bootstrap template called Bootswatch designed by Thomas Park with the source URL located here
                                             <a href="http://bootswatch.com/slate/">Slate Bootswatch Theme</a>. The free theme looked contemporary and the form inputs were very appealing
                                             for this assignment.</p>
                   <h3>Form Inputs</h3>
-                    <p class="text-success"> Initially, I used &lt;select&gt; dropdown input methods to select the number of words and number but as it forced them inputs as integer, I changed
-                                            to text input to implement some error checking functionality. I also removed default checked values for the radio buttons again to implement the error
-                                            checking functionality.</p>
+                    <p class="text-success"> I went back and forth between dropdowns and text boxes in order to make error checking easier. Dropdowns already provide some sort of inherit error
+                                            checking as the user can only choose between available options. There are two error checking mechanisms in the code. Both use the POST error checking method.
+                                            The first was for the radio button if it is not checked. This only works the first time as values are saved after submitting the form once. The second error
+                                            checking was done with the word length. If the Min word length is greater than the Max word length, the code sets the max value to min value + 1. Therefore,
+                                            the minimum value options have to be one less than Max.</p>
 
                   <h3>Wordlist</h3>
                     <p class="text-primary"> Initially I started with a large wordlist with 100k words that had many variants of words such as contractions and possesives.
@@ -234,7 +236,6 @@
                         <option <?php if($WordLengthMin==7) echo "selected=\"selected\""; ?>>7</option>
                         <option <?php if($WordLengthMin==8) echo "selected=\"selected\""; ?>>8</option>
                         <option <?php if($WordLengthMin==9) echo "selected=\"selected\""; ?>>9</option>
-                        <option <?php if($WordLengthMin==10) echo "selected=\"selected\""; ?>>10</option>
                       </select>
                       <label for="WordMin" class="col-lg-offset-4">Min</label>
                     </div>
