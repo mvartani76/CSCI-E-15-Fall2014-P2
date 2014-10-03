@@ -299,7 +299,7 @@
                       </div>
                   </div>
                   <div class="form-group">
-                    <label class="col-lg-10 control-label">Capitalize First Letter?<span class="error"> <?php echo "&nbsp;$CapWordsErr";?></span></label>
+                    <label class="col-lg-10 control-label">Capitalization Options<span class="error"> <?php echo "&nbsp;$CapWordsErr";?></span></label>
                     
                     <div class="col-lg-10">
                       <div class="radio">
