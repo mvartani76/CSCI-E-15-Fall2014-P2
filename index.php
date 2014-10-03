@@ -10,23 +10,16 @@
     <script type="text/javascript" src="mbTooltip.js"></script>
 
 <script type="text/javascript">
+  function saveScrollPositions(theForm) {
 
-function saveScrollPositions(theForm) {
+    if(theForm) {
+      var scrolly = typeof window.pageYOffset != 'undefined' ? window.pageYOffset : document.documentElement.scrollTop;
+      var scrollx = typeof window.pageXOffset != 'undefined' ? window.pageXOffset : document.documentElement.scrollLeft;
 
-if(theForm) {
-
-var scrolly = typeof window.pageYOffset != 'undefined' ? window.pageYOffset : document.documentElement.scrollTop;
-
-var scrollx = typeof window.pageXOffset != 'undefined' ? window.pageXOffset : document.documentElement.scrollLeft;
-
-theForm.scrollx.value = scrollx;
-
-theForm.scrolly.value = scrolly;
-
-}
-
-}
-
+      theForm.scrollx.value = scrollx;
+      theForm.scrolly.value = scrolly;
+    }
+  }
 </script>
 
 
@@ -82,14 +75,14 @@ theForm.scrolly.value = scrolly;
         <div class="row">
           <div class="col-lg-8 col-md-7 col-sm-6">
             <h1>xkcd Password Generator</h1>
-            <p class="lead">Shades of gunmetal gray</p>
+            <p class="lead">Implementation by Mike Vartanian</p>
           </div>
           <div class="col-lg-4 col-md-5 col-sm-6">
           </div>
         </div>
       </div>
 
-      <!-- Typography
+      <!-- Web App Description Section
       ================================================== -->
       <div class="bs-docs-section">
         <!-- Headings -->
@@ -100,7 +93,7 @@ theForm.scrolly.value = scrolly;
                 <p class="text-warning">  This web application implements the xkcd password generation function as described by various websites using PHP as the backend language
                                           and HTML/CSS for the front end language for the form input/parameters and display of generated passwords.</p>
                 <h3>Bootstrap</h3>
-                  <p class="text-info">   A simple, single flat page was employed using the following free bootstrap template designed by Thomas Park with the source URL located here
+                  <p class="text-info">   A simple, single flat page was employed using the following free bootstrap template called Bootswatch designed by Thomas Park with the source URL located here
                                           <a href="http://bootswatch.com/slate/">Slate Bootswatch Theme</a>. The free theme looked contemporary and the form inputs were very appealing
                                           for this assignment.</p>
                 <h3>Form Inputs</h3>
@@ -109,8 +102,10 @@ theForm.scrolly.value = scrolly;
                                           checking functionality.</p>
 
                 <h3>Wordlist</h3>
-                  <p class="text-danger"> To simplify the code, I removed apostrophes from words in wordlist as it was causing errors. Removed 20 words.
-https://github.com/first20hours/google-10000-english
+                  <p class="text-success"> Initially I started with a large wordlist with 100k words that had many variants of words such as contractions and possesives.
+                                          This took processing time to load and required manual adjustment such as removing the apostrophes to simplify the code and fix errors.
+                                          Therefore, I found a Google wordlist with 10k words which was more manageable to work with. The source URL for the Google wordlist is located here
+                                          <a href="https://github.com/first20hours/google-10000-english">Google 10k Wordlist</a>.</p>
           </div>
         </div>
       </div>
@@ -157,7 +152,7 @@ https://github.com/first20hours/google-10000-english
         }
         
         if (empty($_POST["Separator"])) {
-          $SeparatorErr = "Email is required";
+          $SeparatorErr = "Separator is required";
         } else {
           $Separator = test_input($_POST["Separator"]);
         }
@@ -181,8 +176,6 @@ https://github.com/first20hours/google-10000-english
         } else {
           $CapFirstLetter = test_input($_POST["CapFirstLetter"]);
         }
-            echo $SpecialChars;
-            echo $CapFirstLetter;
       }
 
         function test_input($data) {
@@ -190,7 +183,6 @@ https://github.com/first20hours/google-10000-english
          $data = stripslashes($data);
          $data = htmlspecialchars($data);
          return $data; }
-
     ?>
 
     
@@ -199,12 +191,10 @@ https://github.com/first20hours/google-10000-english
             <div class="well-password">
               <form name="myform" method="post" class="form-horizontal" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" onsubmit="return saveScrollPositions(this);">
                 <input type="hidden" name="scrollx" id="scrollx" value="0" />
-
                 <input type="hidden" name="scrolly" id="scrolly" value="0" />
 
                 <fieldset>
                   <legend>Password Parameters</legend>
-                  <?php echo $NumWords;?>
                   <div class="form-group">
                     <label for="select1" class="col-lg-4 control-label">Number of Words</label>
                     <div class="col-lg-3">
@@ -261,17 +251,17 @@ https://github.com/first20hours/google-10000-english
                     <label for="select3" class="col-lg-4 control-label">Number of Numbers</label>
                     <div class="col-lg-3">
                       <select class="form-control" id="select3" name="NumNums" value="<?php echo $NumNums;?>">
-                        <option>0</option>
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
-                        <option>5</option>
-                        <option>6</option>
-                        <option>7</option>
-                        <option>8</option>
-                        <option>9</option>
-                        <option>10</option>
+                        <option <?php if($NumNums==0) echo "selected=\"selected\""; ?>>0</option>
+                        <option <?php if($NumNums==1) echo "selected=\"selected\""; ?>>1</option>
+                        <option <?php if($NumNums==2) echo "selected=\"selected\""; ?>>2</option>
+                        <option <?php if($NumNums==3) echo "selected=\"selected\""; ?>>3</option>
+                        <option <?php if($NumNums==4) echo "selected=\"selected\""; ?>>4</option>
+                        <option <?php if($NumNums==5) echo "selected=\"selected\""; ?>>5</option>
+                        <option <?php if($NumNums==6) echo "selected=\"selected\""; ?>>6</option>
+                        <option <?php if($NumNums==7) echo "selected=\"selected\""; ?>>7</option>
+                        <option <?php if($NumNums==8) echo "selected=\"selected\""; ?>>8</option>
+                        <option <?php if($NumNums==9) echo "selected=\"selected\""; ?>>9</option>
+                        <option <?php if($NumNums==10) echo "selected=\"selected\""; ?>>10</option>
                       </select>
                     </div>
                   </div>
@@ -281,23 +271,21 @@ https://github.com/first20hours/google-10000-english
                     <div class="col-lg-6">
                       <div class="radio">
                         <label>
-                          <input type="radio" id="SpecialChars" name="SpecialChars" <?php echo $SpecialChars; if (isset($SpecialChars) && $SpecialChars=="Yes") echo "checked";?> value="Yes">
-                          Yes
-                        </label>
+                          <input type="radio" id="SpecialChars" name="SpecialChars" <?php echo $SpecialChars; if (isset($SpecialChars) && $SpecialChars=="Yes") {
+                                                                                        echo "checked";} ?> value="Yes">Yes</label>
                       </div>
                       <div class="radio">
                         <label>
-                          <input type="radio" id="SpecialChars" name="SpecialChars" <?php echo $SpecialChars; if (isset($SpecialChars) && $SpecialChars=="No") echo "checked";?>value="No">
-                          No
-                        </label>
+                          <input type="radio" id="SpecialChars" name="SpecialChars" <?php echo $SpecialChars; if (isset($SpecialChars) && $SpecialChars=="No") {
+                                                                                        echo "checked";} ?>value="No">No</label>
                         <span class="error"> <?php echo  $SpecialCharsErr;?></span>
                       </div>
                     </div>
                       <div class="col-lg-3 col-lg-offset-3">
                         <select class="my-form-control" id="Separator" name="Separator" value="<?php echo $Separator;?>">
-                          <option>-</option>
-                          <option></option>
-                          <option>_</option>
+                          <option <?php if($Separator== "-") echo "selected=\"selected\""; ?>>-</option>
+                          <option <?php if($Separator== "&nbsp;") echo "selected=\"selected\""; ?>>&nbsp;</option>
+                          <option <?php if($Separator== "_") echo "selected=\"selected\""; ?>>_</option>
                         </select>
                       </div>
                   </div>
@@ -306,15 +294,13 @@ https://github.com/first20hours/google-10000-english
                     <div class="col-lg-10">
                       <div class="radio">
                         <label>
-                          <input type="radio" id="CapFirstLetter" name="CapFirstLetter" <?php echo $CapFirstLetter; if (isset($CapFirstLetter) && $CapFirstLetter=="Yes") echo "checked";?> value="Yes">
-                          Yes
-                        </label>
+                          <input type="radio" id="CapFirstLetter" name="CapFirstLetter" <?php echo $CapFirstLetter; if (isset($CapFirstLetter) && $CapFirstLetter=="Yes")
+                                                                                                                        echo "checked";?> value="Yes">Yes</label>
                       </div>
                       <div class="radio">
                         <label>
-                          <input type="radio" id="CapFirstLetter" name="CapFirstLetter" <?php echo $CapFirstLetter; if (isset($CapFirstLetter) && $CapFirstLetter=="No") echo "checked";?> value="No">
-                          No
-                        </label>
+                          <input type="radio" id="CapFirstLetter" name="CapFirstLetter" <?php echo $CapFirstLetter; if (isset($CapFirstLetter) && $CapFirstLetter=="No")
+                                                                                                                        echo "checked";?> value="No">No</label>
                         <span class="error"> <?php echo $CapFirstLetterErr;?></span>
                       </div>
                     </div>
@@ -322,8 +308,8 @@ https://github.com/first20hours/google-10000-english
                 </fieldset>
                 <fieldset id="submit-field">
                   <div class="form-group">
-                    <div class="col-lg-10 col-lg-offset-2">
-                      <button type="submit" class="btn btn-primary" name="submit" value="Submit">Submit</button>
+                    <div class="col-lg-12">
+                      <button type="submit" class="btn btn-primary btn-block" name="submit" value="Submit">Submit</button>
                     </div>
                   </div>
                 </fieldset>
@@ -338,22 +324,26 @@ https://github.com/first20hours/google-10000-english
                 <br>
                 <div class="form-group">
                   <label class="control-label">Password 1</label>
-                  <input type="text"  class="form-control" id="inputDefault" value ="<?php if ( isset( $_POST['submit'] ) ) {print_r(generate_password($NumWords,$Separator,$NumNums,$WordLengthMin,$WordLengthMax,$CapFirstLetter));} ?>">
+                  <input type="text"  class="form-control" id="inputDefault" value ="<?php if ( isset( $_POST['submit'] ) ) {
+                                                    print_r(generate_password($NumWords,$Separator,$NumNums,$WordLengthMin,$WordLengthMax,$CapFirstLetter));} ?>">
                 </div>
 
                 <div class="form-group">
                   <label class="control-label">Password 2</label>
-                  <input type="text" class="form-control" id="inputDefault" value ="<?php print_r(generate_password($NumWords,$Separator,$NumNums,$WordLengthMin,$WordLengthMax,$CapFirstLetter)); ?>">
+                  <input type="text" class="form-control" id="inputDefault" value ="<?php if ( isset( $_POST['submit'] ) ) {
+                                                    print_r(generate_password($NumWords,$Separator,$NumNums,$WordLengthMin,$WordLengthMax,$CapFirstLetter));} ?>">
                 </div>
 
                 <div class="form-group">
-                  <label>Password 3</label>
-                  <input type="text" class="form-control" id="inputDefault" value ="<?php print_r(generate_password($NumWords,$Separator,$NumNums,$WordLengthMin,$WordLengthMax,$CapFirstLetter)); ?>">
+                  <label class="control-label">Password 3</label>
+                  <input type="text" class="form-control" id="inputDefault" value ="<?php if ( isset( $_POST['submit'] ) ) {
+                                                    print_r(generate_password($NumWords,$Separator,$NumNums,$WordLengthMin,$WordLengthMax,$CapFirstLetter));} ?>">
                 </div>
 
                 <div class="form-group">
-                  <label>Password 4</label>
-                  <input type="text" class="form-control" id="inputDefault" value ="<?php print_r(generate_password($NumWords,$Separator,$NumNums,$WordLengthMin,$WordLengthMax,$CapFirstLetter)); ?>">
+                  <label class="control-label">Password 4</label>
+                  <input type="text" class="form-control" id="inputDefault" value ="<?php if ( isset( $_POST['submit'] ) ) {
+                                                    print_r(generate_password($NumWords,$Separator,$NumNums,$WordLengthMin,$WordLengthMax,$CapFirstLetter));} ?>">
                 </div>
               </fieldset>
             </div>
@@ -364,7 +354,7 @@ https://github.com/first20hours/google-10000-english
       <?php
 
       //$passout=generate_password($NumWords,$Separator,$NumNums,$WordLengthMin,$WordLengthMax);
-      $passout=generate_password($NumWords,$Separator,$NumNums,3,6);
+      $passout=generate_password($NumWords,$Separator,$NumNums,3,6,$CapFirstLetter);
       echo "NumWords = $NumWords";
       echo "NumNums = $NumNums";
       //print_r($passout);
