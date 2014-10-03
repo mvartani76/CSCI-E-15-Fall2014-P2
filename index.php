@@ -5,7 +5,48 @@
     <title>Bootswatch: Slate</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="bootstrap.css" media="screen">
-    
+    <link rel="stylesheet" type="text/css" href="mbTooltip.css" title="style1"  media="screen">    
+    <script type="text/javascript" src="jquery.timers.js"></script>
+    <script type="text/javascript" src="mbTooltip.js"></script>
+
+<script type="text/javascript">
+
+function saveScrollPositions(theForm) {
+
+if(theForm) {
+
+var scrolly = typeof window.pageYOffset != 'undefined' ? window.pageYOffset : document.documentElement.scrollTop;
+
+var scrollx = typeof window.pageXOffset != 'undefined' ? window.pageXOffset : document.documentElement.scrollLeft;
+
+theForm.scrollx.value = scrollx;
+
+theForm.scrolly.value = scrolly;
+
+}
+
+}
+
+</script>
+
+
+    <script>
+      $(function(){
+        $("body").mbTooltip({ // also $([domElement]).mbTooltip  >>  in this case only children element are involved
+          opacity : .97,       //opacity
+          wait:1200,           //before show
+          cssClass:"default",  // default = default
+          timePerWord:70,      //time to show in milliseconds per word
+          hasArrow:false,     // if you whant a little arrow on the corner
+          hasShadow:true,
+          imgPath:"images/",
+          anchor:"mouse", //"parent"  you can anchor the tooltip to the mouse position or at the bottom of the element
+          shadowColor:"black", //the color of the shadow
+          mb_fade:200 //the time to fade-in
+        });
+      });
+    </script>
+
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
       <script src="../bower_components/html5shiv/dist/html5shiv.js"></script>
@@ -80,16 +121,16 @@ https://github.com/first20hours/google-10000-english
         <div class="row">
           <div class="col-lg-12">
             <div class="page-header">
-              <h1 id="forms">Let's Generate Some Passwords!!</h1>
+              <h1 id="forms" title="what the hell is this?">Let's Generate Some Passwords!!</h1>
             </div>
           </div>
         </div>
 
 
     <?php
-      $NumWordsErr = $NumNumsErr = $SpecialCharsErr = $CapFirstLetterErr = $SeparatorErr = "";
-      $NumWords = $NumNums = $SpecialChars = $CapFirstLetter = $Separator = "";
-
+      $NumWordsErr = $NumNumsErr = $WordLengthMinErr = $WordLengthMaxErr = $SpecialCharsErr = $CapFirstLetterErr = $SeparatorErr = "";
+      $NumWords = $NumNums = $WordLengthMin = $WordLengthMax = $SpecialChars = $CapFirstLetter = $Separator = "";
+  
       if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         if (empty($_POST["NumWords"])) {
@@ -121,6 +162,19 @@ https://github.com/first20hours/google-10000-english
           $Separator = test_input($_POST["Separator"]);
         }
 
+        if (empty($_POST["WordLengthMin"])) {
+          $WordLengthMinErr = "Email is required";
+        } else {
+          $WordLengthMin = test_input($_POST["WordLengthMin"]);
+        }
+
+        if (empty($_POST["WordLengthMax"])) {
+          $WordLengthMaxErr = "Email is required";
+        } else {
+          $WordLengthMax = test_input($_POST["WordLengthMax"]);
+          if ($WordLengthMax <= $WordLengthMin)
+            $WordLengthMax = $WordLengthMin+1;
+        }
 
         if (empty($_POST["CapFirstLetter"])) {
           $CapFirstLetterErr = "* Must Choose Yes or No";
@@ -128,7 +182,7 @@ https://github.com/first20hours/google-10000-english
           $CapFirstLetter = test_input($_POST["CapFirstLetter"]);
         }
             echo $SpecialChars;
-    echo $CapFirstLetter;
+            echo $CapFirstLetter;
       }
 
         function test_input($data) {
@@ -137,33 +191,34 @@ https://github.com/first20hours/google-10000-english
          $data = htmlspecialchars($data);
          return $data; }
 
-         $Password1 = "horse-magnet-ant";
-         $Password2 = "horse-magnsdet-ansdfsdfst";
-         $Password3 = "1234! 34343 skdfer";
-         $Password4 = "poop-doop-floop";
     ?>
 
     
         <div class="row">
           <div class="col-lg-6">
             <div class="well-password">
-              <form method="post" class="form-horizontal" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+              <form name="myform" method="post" class="form-horizontal" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" onsubmit="return saveScrollPositions(this);">
+                <input type="hidden" name="scrollx" id="scrollx" value="0" />
+
+                <input type="hidden" name="scrolly" id="scrolly" value="0" />
+
                 <fieldset>
                   <legend>Password Parameters</legend>
-
+                  <?php echo $NumWords;?>
                   <div class="form-group">
                     <label for="select1" class="col-lg-4 control-label">Number of Words</label>
                     <div class="col-lg-3">
-                      <select class="form-control" id="select1" name="NumWords" value="<?php echo $NumWords;?>">
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
-                        <option>5</option>
-                        <option>6</option>
-                        <option>7</option>
-                        <option>8</option>
-                        <option>9</option>
-                        <option>10</option>
+                      <select required class="form-control" id="select1" name="NumWords" value="<?php echo $NumWords;?>">
+          
+                        <option <?php if($NumWords==2) echo "selected=\"selected\""; ?>>2</option>
+                        <option <?php if($NumWords==3) echo "selected=\"selected\""; ?>>3</option>
+                        <option <?php if($NumWords==4) echo "selected=\"selected\""; ?>>4</option>
+                        <option <?php if($NumWords==5) echo "selected=\"selected\""; ?>>5</option>
+                        <option <?php if($NumWords==6) echo "selected=\"selected\""; ?>>6</option>
+                        <option <?php if($NumWords==7) echo "selected=\"selected\""; ?>>7</option>
+                        <option <?php if($NumWords==8) echo "selected=\"selected\""; ?>>8</option>
+                        <option <?php if($NumWords==9) echo "selected=\"selected\""; ?>>9</option>
+                        <option <?php if($NumWords==10) echo "selected=\"selected\""; ?>>10</option>
                       </select>
                     </div>
                   </div>
@@ -171,32 +226,32 @@ https://github.com/first20hours/google-10000-english
                   <div class="form-group">
                     <label class="col-lg-4 control-label">Word Length</label>
                     <div class="col-lg-3">
-                      <select class="my-form-control" id="WordMin" name="WordLengthMin" value="<?php echo $NumWords;?>">
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
-                        <option>5</option>
-                        <option>6</option>
-                        <option>7</option>
-                        <option>8</option>
-                        <option>9</option>
-                        <option>10</option>
+                      <select class="my-form-control" id="WordMin" name="WordLengthMin" value="<?php echo $WordLengthMin;?>">
+                        <option <?php if($WordLengthMin==1) echo "selected=\"selected\""; ?>>1</option>
+                        <option <?php if($WordLengthMin==2) echo "selected=\"selected\""; ?>>2</option>
+                        <option <?php if($WordLengthMin==3) echo "selected=\"selected\""; ?>>3</option>
+                        <option <?php if($WordLengthMin==4) echo "selected=\"selected\""; ?>>4</option>
+                        <option <?php if($WordLengthMin==5) echo "selected=\"selected\""; ?>>5</option>
+                        <option <?php if($WordLengthMin==6) echo "selected=\"selected\""; ?>>6</option>
+                        <option <?php if($WordLengthMin==7) echo "selected=\"selected\""; ?>>7</option>
+                        <option <?php if($WordLengthMin==8) echo "selected=\"selected\""; ?>>8</option>
+                        <option <?php if($WordLengthMin==9) echo "selected=\"selected\""; ?>>9</option>
+                        <option <?php if($WordLengthMin==10) echo "selected=\"selected\""; ?>>10</option>
                       </select>
                       <label for="WordMin" class="col-lg-offset-4">Min</label>
                     </div>
                     <div class="col-lg-3 col-lg-offset-2">
-                      <select class="my-form-control" id="WordMax" name="WordLengthMax" value="<?php echo $NumWords;?>">
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
-                        <option>5</option>
-                        <option>6</option>
-                        <option>7</option>
-                        <option>8</option>
-                        <option>9</option>
-                        <option>10</option>
+                      <select class="my-form-control" id="WordMax" name="WordLengthMax" value="<?php echo $WordLengthMax;?>">
+                        <option <?php if($WordLengthMax==1) echo "selected=\"selected\""; ?>>1</option>
+                        <option <?php if($WordLengthMax==2) echo "selected=\"selected\""; ?>>2</option>
+                        <option <?php if($WordLengthMax==3) echo "selected=\"selected\""; ?>>3</option>
+                        <option <?php if($WordLengthMax==4) echo "selected=\"selected\""; ?>>4</option>
+                        <option <?php if($WordLengthMax==5) echo "selected=\"selected\""; ?>>5</option>
+                        <option <?php if($WordLengthMax==6) echo "selected=\"selected\""; ?>>6</option>
+                        <option <?php if($WordLengthMax==7) echo "selected=\"selected\""; ?>>7</option>
+                        <option <?php if($WordLengthMax==8) echo "selected=\"selected\""; ?>>8</option>
+                        <option <?php if($WordLengthMax==9) echo "selected=\"selected\""; ?>>9</option>
+                        <option <?php if($WordLengthMax==10) echo "selected=\"selected\""; ?>>10</option>
                       </select>
                       <label for="WordMax" class="col-lg-offset-4">Max</label>
                     </div>
@@ -264,9 +319,11 @@ https://github.com/first20hours/google-10000-english
                       </div>
                     </div>
                   </div>
+                </fieldset>
+                <fieldset id="submit-field">
                   <div class="form-group">
                     <div class="col-lg-10 col-lg-offset-2">
-                      <button type="submit" class="btn btn-primary" name="submit">Submit</button>
+                      <button type="submit" class="btn btn-primary" name="submit" value="Submit">Submit</button>
                     </div>
                   </div>
                 </fieldset>
@@ -276,39 +333,41 @@ https://github.com/first20hours/google-10000-english
 
           <div class="col-lg-6">
             <div class="well-password">
-
+              <fieldset id="outputs">
                 <legend>Password Outputs<legend>
                 <br>
                 <div class="form-group">
                   <label class="control-label">Password 1</label>
-                  <input type="text"  class="form-control" id="inputDefault" value ="<?php print_r(generate_password($NumWords,$Separator)); ?>">
+                  <input type="text"  class="form-control" id="inputDefault" value ="<?php if ( isset( $_POST['submit'] ) ) {print_r(generate_password($NumWords,$Separator,$NumNums,$WordLengthMin,$WordLengthMax,$CapFirstLetter));} ?>">
                 </div>
 
                 <div class="form-group">
                   <label class="control-label">Password 2</label>
-                  <input type="text" class="form-control" id="inputDefault" value ="<?php print_r(generate_password($NumWords,$Separator)); ?>">
+                  <input type="text" class="form-control" id="inputDefault" value ="<?php print_r(generate_password($NumWords,$Separator,$NumNums,$WordLengthMin,$WordLengthMax,$CapFirstLetter)); ?>">
                 </div>
 
                 <div class="form-group">
                   <label>Password 3</label>
-                  <input type="text" class="form-control" id="inputDefault" value ="<?php print_r(generate_password($NumWords,$Separator)); ?>">
+                  <input type="text" class="form-control" id="inputDefault" value ="<?php print_r(generate_password($NumWords,$Separator,$NumNums,$WordLengthMin,$WordLengthMax,$CapFirstLetter)); ?>">
                 </div>
 
                 <div class="form-group">
                   <label>Password 4</label>
-                  <input type="text" class="form-control" id="inputDefault" value ="<?php print_r(generate_password($NumWords,$Separator)); ?>">
+                  <input type="text" class="form-control" id="inputDefault" value ="<?php print_r(generate_password($NumWords,$Separator,$NumNums,$WordLengthMin,$WordLengthMax,$CapFirstLetter)); ?>">
                 </div>
-
+              </fieldset>
             </div>
           </div>
         </div>
       </div>
       <pre>
       <?php
-      echo $NumWords;
-      echo $Separator;
-      $passout=generate_password($NumWords,$Separator);
-      print_r($passout);
+
+      //$passout=generate_password($NumWords,$Separator,$NumNums,$WordLengthMin,$WordLengthMax);
+      $passout=generate_password($NumWords,$Separator,$NumNums,3,6);
+      echo "NumWords = $NumWords";
+      echo "NumNums = $NumNums";
+      //print_r($passout);
       ?>
     </pre>
 
@@ -342,5 +401,32 @@ https://github.com/first20hours/google-10000-english
     <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
     <script src="bootstrap.min.js"></script>
     <script src="bootswatch.js"></script>
+
+
+<?php
+
+$scrollx = 0;
+$scrolly = 0;
+
+if(!empty($_REQUEST['scrollx'])) {
+
+$scrollx = $_REQUEST['scrollx'];
+
+}
+
+if(!empty($_REQUEST['scrolly'])) {
+
+$scrolly = $_REQUEST['scrolly'];
+
+}
+
+?>
+
+<script type="text/javascript">
+
+window.scrollTo(<?php echo "$scrollx" ?>, <?php echo "$scrolly" ?>);
+
+</script>
+
   </body>
 </html>
