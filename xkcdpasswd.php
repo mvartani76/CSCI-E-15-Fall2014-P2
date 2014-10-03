@@ -67,6 +67,7 @@
 				$randindex = rand(0, count($specialchar_array)-1);
 				$pass[$i] .= $specialchar_array[$randindex].$separator;
 			};
+			$passout .= $pass[$i];
 
 		// append the password with $NumNums amount of random numbers
 		for ($i=0;$i<$NumNums;$i++){
