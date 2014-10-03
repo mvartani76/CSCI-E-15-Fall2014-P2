@@ -6,8 +6,12 @@ function sorty($a,$b){
 }
 
 
-function generate_password($NumWords, $separator, $NumNums, $WordLengthMin, $WordLengthMax, $CapFirstLetter){
+function generate_password($NumWords, $separator, $NumNums, $WordLengthMin, $WordLengthMax, $CapFirstLetter,$SpecialChars){
 	require 'google10kwordlist.php';
+
+	$specialchar_array = array('~','`','!','@','#','$','%','^','&','*','(',')','_','-','+','=','[',']','{','}','|','\\',':',';','"','\'','<',',','>','.');
+
+	//print_r($specialchar_array);
 
 	// sort the wordlist by length of word - longest to shortest
 	usort($wordlist,"sorty");
@@ -39,7 +43,14 @@ function generate_password($NumWords, $separator, $NumNums, $WordLengthMin, $Wor
 			$pass[$i]=ucfirst($wordlist[$randindex]);
 		else
 			$pass[$i]=$wordlist[$randindex];
-		$passout .= $pass[$i].$separator;
+
+		// add a single special character to the end of each word
+		if ($SpecialChars=="Yes"){
+			$randindex = rand(0, count($specialchar_array)-1);
+			$passout .= $pass[$i].$specialchar_array[$randindex].$separator;
+		}
+		else
+			$passout .= $pass[$i].$separator;
 	}
 	// to prevent the trailing separator, loop only count()-1 and inline the last word without the separator
 	$randindex =  rand ($MaxIndex, $MinIndex);
@@ -47,7 +58,14 @@ function generate_password($NumWords, $separator, $NumNums, $WordLengthMin, $Wor
 		$pass[$i]=ucfirst($wordlist[$randindex]);
 	else
 		$pass[$i]=$wordlist[$randindex];
-	$passout .= $pass[$i];
+
+	// add a single special character to the end of each word
+	if ($SpecialChars=="Yes"){
+		$randindex = rand(0, count($specialchar_array)-1);
+		$passout .= $pass[$i].$specialchar_array[$randindex];
+	}
+	else
+		$passout .= $pass[$i];
 
 	// append the password with $NumNums amount of random numbers
 	for ($i=0;$i<$NumNums;$i++){

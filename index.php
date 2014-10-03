@@ -325,25 +325,25 @@
                 <div class="form-group">
                   <label class="control-label">Password 1</label>
                   <input type="text"  class="form-control" id="inputDefault" value ="<?php if ( isset( $_POST['submit'] ) ) {
-                                                    print_r(generate_password($NumWords,$Separator,$NumNums,$WordLengthMin,$WordLengthMax,$CapFirstLetter));} ?>">
+                                                    print_r(generate_password($NumWords,$Separator,$NumNums,$WordLengthMin,$WordLengthMax,$CapFirstLetter,$SpecialChars));} ?>">
                 </div>
 
                 <div class="form-group">
                   <label class="control-label">Password 2</label>
                   <input type="text" class="form-control" id="inputDefault" value ="<?php if ( isset( $_POST['submit'] ) ) {
-                                                    print_r(generate_password($NumWords,$Separator,$NumNums,$WordLengthMin,$WordLengthMax,$CapFirstLetter));} ?>">
+                                                    print_r(generate_password($NumWords,$Separator,$NumNums,$WordLengthMin,$WordLengthMax,$CapFirstLetter,$SpecialChars));} ?>">
                 </div>
 
                 <div class="form-group">
                   <label class="control-label">Password 3</label>
                   <input type="text" class="form-control" id="inputDefault" value ="<?php if ( isset( $_POST['submit'] ) ) {
-                                                    print_r(generate_password($NumWords,$Separator,$NumNums,$WordLengthMin,$WordLengthMax,$CapFirstLetter));} ?>">
+                                                    print_r(generate_password($NumWords,$Separator,$NumNums,$WordLengthMin,$WordLengthMax,$CapFirstLetter,$SpecialChars));} ?>">
                 </div>
 
                 <div class="form-group">
                   <label class="control-label">Password 4</label>
                   <input type="text" class="form-control" id="inputDefault" value ="<?php if ( isset( $_POST['submit'] ) ) {
-                                                    print_r(generate_password($NumWords,$Separator,$NumNums,$WordLengthMin,$WordLengthMax,$CapFirstLetter));} ?>">
+                                                    print_r(generate_password($NumWords,$Separator,$NumNums,$WordLengthMin,$WordLengthMax,$CapFirstLetter,$SpecialChars));} ?>">
                 </div>
               </fieldset>
             </div>
@@ -354,7 +354,7 @@
       <?php
 
       //$passout=generate_password($NumWords,$Separator,$NumNums,$WordLengthMin,$WordLengthMax);
-      $passout=generate_password($NumWords,$Separator,$NumNums,3,6,$CapFirstLetter);
+      $passout=generate_password($NumWords,$Separator,$NumNums,3,6,$CapFirstLetter,$SpecialChars);
       echo "NumWords = $NumWords";
       echo "NumNums = $NumNums";
       //print_r($passout);
