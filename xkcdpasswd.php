@@ -6,7 +6,7 @@
 	}
 
 
-	function generate_password($NumWords, $separator, $NumNums, $WordLengthMin, $WordLengthMax, $CapWords, $SpecialChars){
+	function generate_password($NumWords, $separator, $NumNums, $WordLengthMin, $WordLengthMax, $CapWords, $NumChars){
 		require 'google10kwordlist.php';
 
 		$specialchar_array = array('~','`','!','@','#','$','%','^','&','*','(',')','_','-','+','=','[',']','{','}','|','\\',':',';','\'','<',',','>','.');
@@ -45,14 +45,13 @@
 			else
 				$pass[$i]=$wordlist[$randindex];
 
-			// add a single special character to the end of each word
-			if ($SpecialChars=="Yes"){
+			// add a NumChars special characters to the end of each word
+			
+			for ($j=0;$j<$NumChars;$j++){
 				$randindex = rand(0, count($specialchar_array)-1);
-				$passout .= $pass[$i].$specialchar_array[$randindex].$separator;
+				$pass[$i] .= $specialchar_array[$randindex];
 			}
-			else{
-				$passout .= $pass[$i].$separator;
-			}
+			$passout .= $pass[$i].$separator;
 		}
 		// to prevent the trailing separator, loop only count()-1 and inline the last word without the separator
 		$randindex =  rand ($MaxIndex, $MinIndex);
@@ -63,13 +62,11 @@
 		else
 			$pass[$i]=$wordlist[$randindex];
 
-		// add a single special character to the end of each word
-		if ($SpecialChars=="Yes"){
-			$randindex = rand(0, count($specialchar_array)-1);
-			$passout .= $pass[$i].$specialchar_array[$randindex];
-		}
-		else
-			$passout .= $pass[$i];
+		// add a NumChars special characters to the end of each word
+		for ($j=0;$j<$NumChars;$j++){
+				$randindex = rand(0, count($specialchar_array)-1);
+				$pass[$i] .= $specialchar_array[$randindex].$separator;
+			};
 
 		// append the password with $NumNums amount of random numbers
 		for ($i=0;$i<$NumNums;$i++){

@@ -132,8 +132,8 @@
 
 
     <?php
-      $NumWordsErr = $NumNumsErr = $WordLengthMinErr = $WordLengthMaxErr = $SpecialCharsErr = $CapWordsErr = $SeparatorErr = "";
-      $NumWords = $NumNums = $WordLengthMin = $WordLengthMax = $SpecialChars = $CapWords = $Separator = "";
+      $NumWordsErr = $NumNumsErr = $WordLengthMinErr = $WordLengthMaxErr = $NumCharsErr = $CapWordsErr = $SeparatorErr = "";
+      $NumWords = $NumNums = $WordLengthMin = $WordLengthMax = $NumChars = $CapWords = $Separator = "";
   
       if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
@@ -154,10 +154,10 @@
         } else {
           $NumNums = test_input($_POST["NumNums"]);
         }
-        if (empty($_POST["SpecialChars"])) {
-          $SpecialCharsErr = "* Must Choose Yes or No";
+        if (empty($_POST["NumChars"])) {
+          $NumCharsErr = "* Must Choose Yes or No";
         } else {
-          $SpecialChars = test_input($_POST["SpecialChars"]);
+          $NumChars = test_input($_POST["NumChars"]);
         }
         
         if (empty($_POST["Separator"])) {
@@ -274,23 +274,25 @@
                       </select>
                     </div>
                   </div>
+                  <p class="text-right my-p">Separator?&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
                   <div class="form-group">
-                    <label for="SpecialChars" class="col-lg-4 control-label">Special Characters?</label>
-                    <label for="Separator" class="col-lg-3 col-lg-offset-5 control-label">Separator?</label>
-                    <div class="col-lg-6">
-                      <div class="radio">
-                        <label>
-                          <input type="radio" id="SpecialChars" name="SpecialChars" <?php if (isset($SpecialChars) && $SpecialChars=="Yes") {
-                                                                                        echo "checked";} ?> value="Yes">Yes</label>
-                      </div>
-                      <div class="radio">
-                        <label>
-                          <input type="radio" id="SpecialChars" name="SpecialChars" <?php if (isset($SpecialChars) && $SpecialChars=="No") {
-                                                                                        echo "checked";} ?> value="No">No</label>
-                        <span class="error"> <?php echo  $SpecialCharsErr;?></span>
-                      </div>
+                    <label for="NumChars" class="col-lg-4 control-label">Special Characters?</label>
+                    <div class="col-lg-3">
+                      <select class="form-control" id="NumChars" name="NumChars" value="<?php echo $NumChars;?>">
+                        <option <?php if($NumChars==0) echo "selected=\"selected\""; ?>>0</option>
+                        <option <?php if($NumChars==1) echo "selected=\"selected\""; ?>>1</option>
+                        <option <?php if($NumChars==2) echo "selected=\"selected\""; ?>>2</option>
+                        <option <?php if($NumChars==3) echo "selected=\"selected\""; ?>>3</option>
+                        <option <?php if($NumChars==4) echo "selected=\"selected\""; ?>>4</option>
+                        <option <?php if($NumChars==5) echo "selected=\"selected\""; ?>>5</option>
+                        <option <?php if($NumChars==6) echo "selected=\"selected\""; ?>>6</option>
+                        <option <?php if($NumChars==7) echo "selected=\"selected\""; ?>>7</option>
+                        <option <?php if($NumChars==8) echo "selected=\"selected\""; ?>>8</option>
+                        <option <?php if($NumChars==9) echo "selected=\"selected\""; ?>>9</option>
+                        <option <?php if($NumChars==10) echo "selected=\"selected\""; ?>>10</option>
+                      </select>
                     </div>
-                      <div class="col-lg-3 col-lg-offset-3">
+                      <div class="col-lg-3 col-lg-offset-2">
                         <select class="my-form-control" id="Separator" name="Separator" value="<?php echo $Separator;?>">
                           <option <?php if($Separator== "-") echo "selected=\"selected\""; ?>>-</option>
                           <option <?php if($Separator== "&nbsp;") echo "selected=\"selected\""; ?>>&nbsp;</option>
@@ -336,25 +338,25 @@
                 <div class="form-group">
                   <label class="control-label text-warning">Password 1</label>
                   <input type="text"  class="form-control" id="inputDefault" value ="<?php if ( isset( $_POST['submit'] ) ) {
-                                                    print_r(generate_password($NumWords,$Separator,$NumNums,$WordLengthMin,$WordLengthMax,$CapWords,$SpecialChars));} ?>">
+                                                    print_r(generate_password($NumWords,$Separator,$NumNums,$WordLengthMin,$WordLengthMax,$CapWords,$NumChars));} ?>">
                 </div>
 
                 <div class="form-group">
                   <label class="control-label text-info">Password 2</label>
                   <input type="text" class="form-control" id="inputDefault" value ="<?php if ( isset( $_POST['submit'] ) ) {
-                                                    print_r(generate_password($NumWords,$Separator,$NumNums,$WordLengthMin,$WordLengthMax,$CapWords,$SpecialChars));} ?>">
+                                                    print_r(generate_password($NumWords,$Separator,$NumNums,$WordLengthMin,$WordLengthMax,$CapWords,$NumChars));} ?>">
                 </div>
 
                 <div class="form-group">
                   <label class="control-label text-danger">Password 3</label>
                   <input type="text" class="form-control" id="inputDefault" value ="<?php if ( isset( $_POST['submit'] ) ) {
-                                                    print_r(generate_password($NumWords,$Separator,$NumNums,$WordLengthMin,$WordLengthMax,$CapWords,$SpecialChars));} ?>">
+                                                    print_r(generate_password($NumWords,$Separator,$NumNums,$WordLengthMin,$WordLengthMax,$CapWords,$NumChars));} ?>">
                 </div>
 
                 <div class="form-group">
                   <label class="control-label text-success">Password 4</label>
                   <input type="text" class="form-control" id="inputDefault" value ="<?php if ( isset( $_POST['submit'] ) ) {
-                                                    print_r(generate_password($NumWords,$Separator,$NumNums,$WordLengthMin,$WordLengthMax,$CapWords,$SpecialChars));} ?>">
+                                                    print_r(generate_password($NumWords,$Separator,$NumNums,$WordLengthMin,$WordLengthMax,$CapWords,$NumChars));} ?>">
                 </div>
               </fieldset>
             </div>
@@ -365,7 +367,7 @@
       <?php
 
       //$passout=generate_password($NumWords,$Separator,$NumNums,$WordLengthMin,$WordLengthMax);
-      $passout=generate_password($NumWords,$Separator,$NumNums,3,6,$CapWords,$SpecialChars);
+      $passout=generate_password($NumWords,$Separator,$NumNums,3,6,$CapWords,$NumChars);
       echo "NumWords = $NumWords";
       echo "NumNums = $NumNums";
       //print_r($passout);
@@ -385,7 +387,6 @@
             </ul>
           </div>
         </div>
-
       </footer>
 
     </div>
@@ -400,7 +401,6 @@
 
       if(!empty($_REQUEST['scrollx'])) {
         $scrollx = $_REQUEST['scrollx'];
-
       }
 
       if(!empty($_REQUEST['scrolly'])) {

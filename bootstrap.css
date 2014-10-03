@@ -6627,3 +6627,7 @@ a.thumbnail.active {
   padding-right: 0;
   list-style: none;
 }
+.my-p {
+  padding-bottom: 0;
+  margin-bottom: 0;
+}
