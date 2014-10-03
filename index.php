@@ -275,7 +275,7 @@
                   </div>
                   <p class="text-right my-p">Separator&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
                   <div class="form-group">
-                    <label for="NumChars" class="col-lg-4 control-label" title="The number of special characters to add at the end of each word in passphrase.">Number of Special Characters</label>
+                    <label for="NumChars" class="col-lg-4 control-label" title="The number of special characters to add at the end of each word in passphrase."># of Special Chars</label>
                     <div class="col-lg-3">
                       <select class="form-control" id="NumChars" name="NumChars" value="<?php echo $NumChars;?>">
                         <option <?php if($NumChars==0) echo "selected=\"selected\""; ?>>0</option>
