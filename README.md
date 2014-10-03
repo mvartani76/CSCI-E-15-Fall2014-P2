@@ -16,6 +16,7 @@ I took the following challenges for this assignment.
 	<li>Added a dropdown box to choose how many special characters to add. I had these special characters appended to the end of the word.</li>
 	<li>Added a dropdown box to choose between different word separators. The three options were "-", "&nbsp;", and "_".</li>
 	<li>Added a couple dropdown boxes to determine the minimum and maximum length of the words in the passphrase. Within the passprhase, these were chosen randomly.</li>
+	<li>Added a dropdown box to choose how many numbers to add at the beginning and the end of the overall passphrase.</li>
 	<li>Added the ability to have different capitalization options using radio buttons.</li>
 </ol>
 
