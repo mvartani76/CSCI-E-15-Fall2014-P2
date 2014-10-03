@@ -5,7 +5,7 @@
     <title>Bootswatch: Slate</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="bootstrap.css" media="screen">
-    <link rel="stylesheet" href="bootswatch.min.css">
+    
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
       <script src="../bower_components/html5shiv/dist/html5shiv.js"></script>
@@ -26,7 +26,13 @@
      })();
 
     </script>
+
+    <?php
+      require 'xkcdpasswd.php';
+      ?>
+
   </head>
+
   <body>
     
     <div class="container">
@@ -42,221 +48,28 @@
         </div>
       </div>
 
-
-      <!-- Buttons
-      ================================================== -->
-      <div class="bs-docs-section">
-        <div class="page-header">
-          <div class="row">
-            <div class="col-lg-12">
-              <h1 id="buttons">Buttons</h1>
-            </div>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col-lg-6">
-
-            <p class="bs-component">
-              <a href="#" class="btn btn-default">Default</a>
-              <a href="#" class="btn btn-primary">Primary</a>
-              <a href="#" class="btn btn-success">Success</a>
-              <a href="#" class="btn btn-info">Info</a>
-              <a href="#" class="btn btn-warning">Warning</a>
-              <a href="#" class="btn btn-danger">Danger</a>
-              <a href="#" class="btn btn-link">Link</a>
-            </p>
-
-            <p class="bs-component">
-              <a href="#" class="btn btn-default disabled">Default</a>
-              <a href="#" class="btn btn-primary disabled">Primary</a>
-              <a href="#" class="btn btn-success disabled">Success</a>
-              <a href="#" class="btn btn-info disabled">Info</a>
-              <a href="#" class="btn btn-warning disabled">Warning</a>
-              <a href="#" class="btn btn-danger disabled">Danger</a>
-              <a href="#" class="btn btn-link disabled">Link</a>
-            </p>
-
-
-            <div style="margin-bottom: 15px;">
-              <div class="btn-toolbar bs-component" style="margin: 0;">
-                <div class="btn-group">
-                  <a href="#" class="btn btn-default">Default</a>
-                  <a href="#" class="btn btn-default dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></a>
-                  <ul class="dropdown-menu">
-                    <li><a href="#">Action</a></li>
-                    <li><a href="#">Another action</a></li>
-                    <li><a href="#">Something else here</a></li>
-                    <li class="divider"></li>
-                    <li><a href="#">Separated link</a></li>
-                  </ul>
-                </div>
-
-                <div class="btn-group">
-                  <a href="#" class="btn btn-primary">Primary</a>
-                  <a href="#" class="btn btn-primary dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></a>
-                  <ul class="dropdown-menu">
-                    <li><a href="#">Action</a></li>
-                    <li><a href="#">Another action</a></li>
-                    <li><a href="#">Something else here</a></li>
-                    <li class="divider"></li>
-                    <li><a href="#">Separated link</a></li>
-                  </ul>
-                </div>
-
-                <div class="btn-group">
-                  <a href="#" class="btn btn-success">Success</a>
-                  <a href="#" class="btn btn-success dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></a>
-                  <ul class="dropdown-menu">
-                    <li><a href="#">Action</a></li>
-                    <li><a href="#">Another action</a></li>
-                    <li><a href="#">Something else here</a></li>
-                    <li class="divider"></li>
-                    <li><a href="#">Separated link</a></li>
-                  </ul>
-                </div>
-
-                <div class="btn-group">
-                  <a href="#" class="btn btn-info">Info</a>
-                  <a href="#" class="btn btn-info dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></a>
-                  <ul class="dropdown-menu">
-                    <li><a href="#">Action</a></li>
-                    <li><a href="#">Another action</a></li>
-                    <li><a href="#">Something else here</a></li>
-                    <li class="divider"></li>
-                    <li><a href="#">Separated link</a></li>
-                  </ul>
-                </div>
-
-                <div class="btn-group">
-                  <a href="#" class="btn btn-warning">Warning</a>
-                  <a href="#" class="btn btn-warning dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></a>
-                  <ul class="dropdown-menu">
-                    <li><a href="#">Action</a></li>
-                    <li><a href="#">Another action</a></li>
-                    <li><a href="#">Something else here</a></li>
-                    <li class="divider"></li>
-                    <li><a href="#">Separated link</a></li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-
-            <p class="bs-component">
-              <a href="#" class="btn btn-primary btn-lg">Large button</a>
-              <a href="#" class="btn btn-primary">Default button</a>
-              <a href="#" class="btn btn-primary btn-sm">Small button</a>
-              <a href="#" class="btn btn-primary btn-xs">Mini button</a>
-            </p>
-
-          </div>
-          <div class="col-lg-6">
-
-            <p class="bs-component">
-              <a href="#" class="btn btn-default btn-lg btn-block">Block level button</a>
-            </p>
-
-
-            <div class="bs-component" style="margin-bottom: 15px;">
-              <div class="btn-group btn-group-justified">
-                <a href="#" class="btn btn-default">Left</a>
-                <a href="#" class="btn btn-default">Middle</a>
-                <a href="#" class="btn btn-default">Right</a>
-              </div>
-            </div>
-
-            <div class="bs-component" style="margin-bottom: 15px;">
-              <div class="btn-toolbar">
-                <div class="btn-group">
-                  <a href="#" class="btn btn-default">1</a>
-                  <a href="#" class="btn btn-default">2</a>
-                  <a href="#" class="btn btn-default">3</a>
-                  <a href="#" class="btn btn-default">4</a>
-                </div>
-
-                <div class="btn-group">
-                  <a href="#" class="btn btn-default">5</a>
-                  <a href="#" class="btn btn-default">6</a>
-                  <a href="#" class="btn btn-default">7</a>
-                </div>
-
-                <div class="btn-group">
-                  <a href="#" class="btn btn-default">8</a>
-                  <div class="btn-group">
-                    <a href="#" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-                      Dropdown
-                      <span class="caret"></span>
-                    </a>
-                    <ul class="dropdown-menu">
-                      <li><a href="#">Dropdown link</a></li>
-                      <li><a href="#">Dropdown link</a></li>
-                      <li><a href="#">Dropdown link</a></li>
-                     </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="bs-component">
-              <div class="btn-group-vertical">
-                  <a href="#" class="btn btn-default">Button</a>
-                  <a href="#" class="btn btn-default">Button</a>
-                  <a href="#" class="btn btn-default">Button</a>
-                  <a href="#" class="btn btn-default">Button</a>
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </div>
-
       <!-- Typography
       ================================================== -->
       <div class="bs-docs-section">
-        <div class="row">
-          <div class="col-lg-12">
-            <div class="page-header">
-              <h1 id="type">Typography</h1>
-            </div>
-          </div>
-        </div>
-
         <!-- Headings -->
 
         <div class="row">
-          <div class="col-lg-4">
-            <div class="bs-component">
-              <h1>Heading 1</h1>
-              <h2>Heading 2</h2>
-              <h3>Heading 3</h3>
-              <h4>Heading 4</h4>
-              <h5>Heading 5</h5>
-              <h6>Heading 6</h6>
-              <p class="lead">Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
-            </div>
-          </div>
-          <div class="col-lg-4">
-            <div class="bs-component">
-              <h2>Example body text</h2>
-              <p>Nullam quis risus eget <a href="#">urna mollis ornare</a> vel eu leo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nullam id dolor id nibh ultricies vehicula.</p>
-              <p><small>This line of text is meant to be treated as fine print.</small></p>
-              <p>The following snippet of text is <strong>rendered as bold text</strong>.</p>
-              <p>The following snippet of text is <em>rendered as italicized text</em>.</p>
-              <p>An abbreviation of the word attribute is <abbr title="attribute">attr</abbr>.</p>
-            </div>
+          <div class="col-lg-14">
+              <h2>Web App Description</h2>
+                <p class="text-warning">  This web application implements the xkcd password generation function as described by various websites using PHP as the backend language
+                                          and HTML/CSS for the front end language for the form input/parameters and display of generated passwords.</p>
+                <h3>Bootstrap</h3>
+                  <p class="text-info">   A simple, single flat page was employed using the following free bootstrap template designed by Thomas Park with the source URL located here
+                                          <a href="http://bootswatch.com/slate/">Slate Bootswatch Theme</a>. The free theme looked contemporary and the form inputs were very appealing
+                                          for this assignment.</p>
+                <h3>Form Inputs</h3>
+                  <p class="text-danger"> Initially, I used &lt;select&gt; dropdown input methods to select the number of words and number but as it forced them inputs as integer, I changed
+                                          to text input to implement some error checking functionality. I also removed default checked values for the radio buttons again to implement the error
+                                          checking functionality.</p>
 
-          </div>
-          <div class="col-lg-4">
-            <div class="bs-component">
-              <h2>Emphasis classes</h2>
-              <p class="text-muted">Fusce dapibus, tellus ac cursus commodo, tortor mauris nibh.</p>
-              <p class="text-primary">Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-              <p class="text-warning">Etiam porta sem malesuada magna mollis euismod.</p>
-              <p class="text-danger">Donec ullamcorper nulla non metus auctor fringilla.</p>
-              <p class="text-success">Duis mollis, est non commodo luctus, nisi erat porttitor ligula.</p>
-              <p class="text-info">Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
-            </div>
-
+                <h3>Wordlist</h3>
+                  <p class="text-danger"> To simplify the code, I removed apostrophes from words in wordlist as it was causing errors. Removed 20 words.
+https://github.com/first20hours/google-10000-english
           </div>
         </div>
       </div>
@@ -267,23 +80,81 @@
         <div class="row">
           <div class="col-lg-12">
             <div class="page-header">
-              <h1 id="forms">Forms</h1>
+              <h1 id="forms">Let's Generate Some Passwords!!</h1>
             </div>
           </div>
         </div>
 
+
+    <?php
+      $NumWordsErr = $NumNumsErr = $SpecialCharsErr = $CapFirstLetterErr = $SeparatorErr = "";
+      $NumWords = $NumNums = $SpecialChars = $CapFirstLetter = $Separator = "";
+
+      if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+        if (empty($_POST["NumWords"])) {
+          $NumWordsErr = "NumWords is required";
+        } else {
+          $NumWords = test_input($_POST["NumWords"]);
+          
+          if (!preg_match('/^[0-9]{0,1}$/',$NumWords)) {
+            $NumWordsErr = "Only digits 0-9 allowed";
+          } else {
+            $NumWordsErr = "";
+          }
+        }
+
+        if (empty($_POST["NumNums"])) {
+          $NumNumsErr = "Email is required";
+        } else {
+          $NumNums = test_input($_POST["NumNums"]);
+        }
+        if (empty($_POST["SpecialChars"])) {
+          $SpecialCharsErr = "* Must Choose Yes or No";
+        } else {
+          $SpecialChars = test_input($_POST["SpecialChars"]);
+        }
+        
+        if (empty($_POST["Separator"])) {
+          $SeparatorErr = "Email is required";
+        } else {
+          $Separator = test_input($_POST["Separator"]);
+        }
+
+
+        if (empty($_POST["CapFirstLetter"])) {
+          $CapFirstLetterErr = "* Must Choose Yes or No";
+        } else {
+          $CapFirstLetter = test_input($_POST["CapFirstLetter"]);
+        }
+            echo $SpecialChars;
+    echo $CapFirstLetter;
+      }
+
+        function test_input($data) {
+         $data = trim($data);
+         $data = stripslashes($data);
+         $data = htmlspecialchars($data);
+         return $data; }
+
+         $Password1 = "horse-magnet-ant";
+         $Password2 = "horse-magnsdet-ansdfsdfst";
+         $Password3 = "1234! 34343 skdfer";
+         $Password4 = "poop-doop-floop";
+    ?>
+
+    
         <div class="row">
           <div class="col-lg-6">
-            <div class="well bs-component">
-              <form class="form-horizontal">
+            <div class="well-password">
+              <form method="post" class="form-horizontal" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
                 <fieldset>
                   <legend>Password Parameters</legend>
 
                   <div class="form-group">
                     <label for="select1" class="col-lg-4 control-label">Number of Words</label>
                     <div class="col-lg-3">
-                      <select class="form-control" id="select1">
-                        <option>1</option>
+                      <select class="form-control" id="select1" name="NumWords" value="<?php echo $NumWords;?>">
                         <option>2</option>
                         <option>3</option>
                         <option>4</option>
@@ -296,10 +167,45 @@
                       </select>
                     </div>
                   </div>
+
                   <div class="form-group">
-                    <label for="select2" class="col-lg-4 control-label">Number of Numbers</label>
+                    <label class="col-lg-4 control-label">Word Length</label>
                     <div class="col-lg-3">
-                      <select class="form-control" id="select2">
+                      <select class="my-form-control" id="WordMin" name="WordLengthMin" value="<?php echo $NumWords;?>">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                        <option>6</option>
+                        <option>7</option>
+                        <option>8</option>
+                        <option>9</option>
+                        <option>10</option>
+                      </select>
+                      <label for="WordMin" class="col-lg-offset-4">Min</label>
+                    </div>
+                    <div class="col-lg-3 col-lg-offset-2">
+                      <select class="my-form-control" id="WordMax" name="WordLengthMax" value="<?php echo $NumWords;?>">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                        <option>6</option>
+                        <option>7</option>
+                        <option>8</option>
+                        <option>9</option>
+                        <option>10</option>
+                      </select>
+                      <label for="WordMax" class="col-lg-offset-4">Max</label>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="select3" class="col-lg-4 control-label">Number of Numbers</label>
+                    <div class="col-lg-3">
+                      <select class="form-control" id="select3" name="NumNums" value="<?php echo $NumNums;?>">
                         <option>0</option>
                         <option>1</option>
                         <option>2</option>
@@ -315,43 +221,52 @@
                     </div>
                   </div>
                   <div class="form-group">
-                    <label class="col-lg-4 control-label">Special Characters?</label>
-                    <div class="col-lg-10">
+                    <label for="SpecialChars" class="col-lg-4 control-label">Special Characters?</label>
+                    <label for="Separator" class="col-lg-3 col-lg-offset-5 control-label">Separator?</label>
+                    <div class="col-lg-6">
                       <div class="radio">
                         <label>
-                          <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked="">
+                          <input type="radio" id="SpecialChars" name="SpecialChars" <?php echo $SpecialChars; if (isset($SpecialChars) && $SpecialChars=="Yes") echo "checked";?> value="Yes">
                           Yes
                         </label>
                       </div>
                       <div class="radio">
                         <label>
-                          <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+                          <input type="radio" id="SpecialChars" name="SpecialChars" <?php echo $SpecialChars; if (isset($SpecialChars) && $SpecialChars=="No") echo "checked";?>value="No">
                           No
                         </label>
+                        <span class="error"> <?php echo  $SpecialCharsErr;?></span>
                       </div>
                     </div>
+                      <div class="col-lg-3 col-lg-offset-3">
+                        <select class="my-form-control" id="Separator" name="Separator" value="<?php echo $Separator;?>">
+                          <option>-</option>
+                          <option></option>
+                          <option>_</option>
+                        </select>
+                      </div>
                   </div>
                   <div class="form-group">
                     <label class="col-lg-4 control-label">Capitalize First Letter?</label>
                     <div class="col-lg-10">
                       <div class="radio">
                         <label>
-                          <input type="radio" name="optionsRadios1" id="optionsRadios3" value="option3" checked="">
+                          <input type="radio" id="CapFirstLetter" name="CapFirstLetter" <?php echo $CapFirstLetter; if (isset($CapFirstLetter) && $CapFirstLetter=="Yes") echo "checked";?> value="Yes">
                           Yes
                         </label>
                       </div>
                       <div class="radio">
                         <label>
-                          <input type="radio" name="optionsRadios1" id="optionsRadios4" value="option2">
+                          <input type="radio" id="CapFirstLetter" name="CapFirstLetter" <?php echo $CapFirstLetter; if (isset($CapFirstLetter) && $CapFirstLetter=="No") echo "checked";?> value="No">
                           No
                         </label>
+                        <span class="error"> <?php echo $CapFirstLetterErr;?></span>
                       </div>
                     </div>
                   </div>
                   <div class="form-group">
                     <div class="col-lg-10 col-lg-offset-2">
-                      <button class="btn btn-default">Cancel</button>
-                      <button type="submit" class="btn btn-primary">Submit</button>
+                      <button type="submit" class="btn btn-primary" name="submit">Submit</button>
                     </div>
                   </div>
                 </fieldset>
@@ -359,80 +274,44 @@
             </div>
           </div>
 
+          <div class="col-lg-6">
+            <div class="well-password">
 
-          <div class="col-lg-4 col-lg-offset-1">
-            <div class="bs-component">
-              <form class="form-horizontal">
-                  <legend>Password Outputs<legend>
+                <legend>Password Outputs<legend>
+                <br>
                 <div class="form-group">
-                  <label class="control-label" for="focusedInput">Focused input</label>
-                  <input class="form-control" id="focusedInput" type="text" value="This is focused...">
-                </div>
-
-                <div class="form-group">
-                  <label class="control-label" for="disabledInput">Disabled input</label>
-                  <input class="form-control" id="disabledInput" type="text" placeholder="Disabled input here..." disabled="">
-                </div>
-
-                <div class="form-group has-warning">
-                  <label class="control-label" for="inputWarning">Input warning</label>
-                  <input type="text" class="form-control" id="inputWarning">
-                </div>
-
-                <div class="form-group has-error">
-                  <label class="control-label" for="inputError">Input error</label>
-                  <input type="text" class="form-control" id="inputError">
-                </div>
-
-                <div class="form-group has-success">
-                  <label class="control-label" for="inputSuccess">Input success</label>
-                  <input type="text" class="form-control" id="inputSuccess">
+                  <label class="control-label">Password 1</label>
+                  <input type="text"  class="form-control" id="inputDefault" value ="<?php print_r(generate_password($NumWords,$Separator)); ?>">
                 </div>
 
                 <div class="form-group">
-                  <label class="control-label" for="inputLarge">Large input</label>
-                  <input class="form-control input-lg" type="text" id="inputLarge">
+                  <label class="control-label">Password 2</label>
+                  <input type="text" class="form-control" id="inputDefault" value ="<?php print_r(generate_password($NumWords,$Separator)); ?>">
                 </div>
 
                 <div class="form-group">
-                  <label class="control-label" for="inputDefault">Default input</label>
-                  <input type="text" class="form-control" id="inputDefault">
+                  <label>Password 3</label>
+                  <input type="text" class="form-control" id="inputDefault" value ="<?php print_r(generate_password($NumWords,$Separator)); ?>">
                 </div>
 
                 <div class="form-group">
-                  <label class="control-label" for="inputSmall">Small input</label>
-                  <input class="form-control input-sm" type="text" id="inputSmall">
+                  <label>Password 4</label>
+                  <input type="text" class="form-control" id="inputDefault" value ="<?php print_r(generate_password($NumWords,$Separator)); ?>">
                 </div>
 
-                <div class="form-group">
-                  <label class="control-label">Input addons</label>
-                  <div class="input-group">
-                    <span class="input-group-addon">$</span>
-                    <input type="text" class="form-control">
-                    <span class="input-group-btn">
-                      <button class="btn btn-default" type="button">Button</button>
-                    </span>
-                  </div>
-                </div>
-              </form>
             </div>
           </div>
         </div>
       </div>
+      <pre>
+      <?php
+      echo $NumWords;
+      echo $Separator;
+      $passout=generate_password($NumWords,$Separator);
+      print_r($passout);
+      ?>
+    </pre>
 
-      <div id="source-modal" class="modal fade">
-        <div class="modal-dialog modal-lg">
-          <div class="modal-content">
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-              <h4 class="modal-title">Source Code</h4>
-            </div>
-            <div class="modal-body">
-              <pre></pre>
-            </div>
-          </div>
-        </div>
-      </div>
 
       <footer>
         <div class="row">
