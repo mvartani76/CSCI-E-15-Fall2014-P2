@@ -24,5 +24,6 @@ Code validates (HTML5 -- a few warnings but no errors) at http://validator.w3.or
 ## Outside Code
 
 Started from the free bootstrap theme, Bootswatch which was developed by Thomas Park and is available under MIT license at the following directory : http://bootswatch.com/slate/
+<br>
 I also used some code that tried to keep the screen constant when hitting the submit button. Previously, the screen would scroll back to the top of the page. The code examples were taken
 from the following blog site: http://www.pchelpforyou.co.uk/blog/pchelpforyou_blog.php?article_id=40%27/
