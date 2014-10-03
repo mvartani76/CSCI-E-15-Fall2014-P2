@@ -280,13 +280,13 @@
                     <div class="col-lg-6">
                       <div class="radio">
                         <label>
-                          <input type="radio" id="SpecialChars" name="SpecialChars" <?php echo $SpecialChars; if (isset($SpecialChars) && $SpecialChars=="Yes") {
+                          <input type="radio" id="SpecialChars" name="SpecialChars" <?php if (isset($SpecialChars) && $SpecialChars=="Yes") {
                                                                                         echo "checked";} ?> value="Yes">Yes</label>
                       </div>
                       <div class="radio">
                         <label>
-                          <input type="radio" id="SpecialChars" name="SpecialChars" <?php echo $SpecialChars; if (isset($SpecialChars) && $SpecialChars=="No") {
-                                                                                        echo "checked";} ?>value="No">No</label>
+                          <input type="radio" id="SpecialChars" name="SpecialChars" <?php if (isset($SpecialChars) && $SpecialChars=="No") {
+                                                                                        echo "checked";} ?> value="No">No</label>
                         <span class="error"> <?php echo  $SpecialCharsErr;?></span>
                       </div>
                     </div>
@@ -304,15 +304,15 @@
                     <div class="col-lg-10">
                       <div class="radio">
                         <label>
-                          <input type="radio" id="CapWords" name="CapWords" <?php echo $CapWords; if (isset($CapWords) && $CapWords=="UpperCase")
-                                                                                                                        echo "checked";?> value="UpperCase">All Uppercase</label>
+                          <input type="radio" id="CapWords" name="CapWords" <?php if (isset($CapWords) && $CapWords=="UpperCase")
+                                                                                        echo "checked";?> value="UpperCase">All Uppercase</label>
 
                         <label>
-                          <input type="radio" id="CapWords" name="CapWords" <?php echo $CapWords; if (isset($CapWords) && $CapWords=="FirstLetterCap")
-                                                                                                                        echo "checked";?> value="FirstLetterCap">Only First Letter Uppercase</label>
+                          <input type="radio" id="CapWords" name="CapWords" <?php if (isset($CapWords) && $CapWords=="FirstLetterCap")
+                                                                                        echo "checked";?> value="FirstLetterCap">Only First Letter Uppercase</label>
                         <label>
-                          <input type="radio" id="CapWords" name="CapWords" <?php echo $CapWords; if (isset($CapWords) && $CapWords=="LowerCase")
-                                                                                                                        echo "checked";?> value="LowerCase">All Lowercase</label>
+                          <input type="radio" id="CapWords" name="CapWords" <?php if (isset($CapWords) && $CapWords=="LowerCase")
+                                                                                        echo "checked";?> value="LowerCase">All Lowercase</label>
                       </div>
                     </div>
                   </div>
@@ -375,26 +375,18 @@
 
       <footer>
         <div class="row">
-          <div class="col-lg-12">
-
-            <ul class="list-unstyled">
-              <li class="pull-right"><a href="#top">Back to top</a></li>
-              <li><a href="http://news.bootswatch.com" onclick="pageTracker._link(this.href); return false;">Blog</a></li>
-              <li><a href="http://feeds.feedburner.com/bootswatch">RSS</a></li>
-              <li><a href="https://twitter.com/bootswatch">Twitter</a></li>
-              <li><a href="https://github.com/thomaspark/bootswatch/">GitHub</a></li>
-              <li><a href="../help/#api">API</a></li>
-              <li><a href="../help/#support">Support</a></li>
+          <div class="col-lg-16">
+            <ul class="list-inline center-block">
+              <li><a href="https://www.facebook.com/mike.vartanian"><img src="http://mikevartanian.me/CSCI-E-15-Assets/images/facebook.png" height="50" width="50" alt="facebook"></a></li>
+              <li><a href="https://twitter.com/mvartani76"><img src="http://mikevartanian.me/CSCI-E-15-Assets/images/twitter.png" height="50" width="50" alt="twitter"></a></li>
+              <li><a href="https://plus.google.com/+MikeVartanian/posts"><img src="http://mikevartanian.me/CSCI-E-15-Assets/images/google-plus.png" height="50" width="50" alt="google+"></a></li>
+              <li><a href="http://www.pinterest.com/mikevartanian/"><img src="http://mikevartanian.me/CSCI-E-15-Assets/images/pinterest.png" height="50" width="50" alt="pinterest"></a></li>
+              <li><a href="https://www.linkedin.com/pub/michael-vartanian/3/906/549/"><img src="http://mikevartanian.me/CSCI-E-15-Assets/images/linkedin.png" height="50" width="50" alt="linkedin"></a></li>
             </ul>
-            <p>Made by <a href="http://thomaspark.me" rel="nofollow">Thomas Park</a>. Contact him at <a href="mailto:thomas@bootswatch.com">thomas@bootswatch.com</a>.</p>
-            <p>Code released under the <a href="https://github.com/thomaspark/bootswatch/blob/gh-pages/LICENSE">MIT License</a>.</p>
-            <p>Based on <a href="http://getbootstrap.com" rel="nofollow">Bootstrap</a>. Icons from <a href="http://fortawesome.github.io/Font-Awesome/" rel="nofollow">Font Awesome</a>. Web fonts from <a href="http://www.google.com/webfonts" rel="nofollow">Google</a>.</p>
-
           </div>
         </div>
 
       </footer>
-
 
     </div>
 
