@@ -65,7 +65,7 @@
 		// add a NumChars special characters to the end of each word
 		for ($j=0;$j<$NumChars;$j++){
 				$randindex = rand(0, count($specialchar_array)-1);
-				$pass[$i] .= $specialchar_array[$randindex].$separator;
+				$pass[$i] .= $specialchar_array[$randindex];
 			};
 			$passout .= $pass[$i];
 
