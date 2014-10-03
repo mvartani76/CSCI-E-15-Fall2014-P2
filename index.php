@@ -5,7 +5,9 @@
     <title>Bootswatch: Slate</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="bootstrap.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="mbTooltip.css" title="style1"  media="screen">    
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.1/themes/smoothness/jquery-ui.css">
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="//code.jquery.com/ui/1.11.1/jquery-ui.js"></script>
     <script type="text/javascript" src="jquery.timers.js"></script>
     <script type="text/javascript" src="mbTooltip.js"></script>
 
@@ -23,22 +25,18 @@
 </script>
 
 
-    <script>
-      $(function(){
-        $("body").mbTooltip({ // also $([domElement]).mbTooltip  >>  in this case only children element are involved
-          opacity : .97,       //opacity
-          wait:1200,           //before show
-          cssClass:"default",  // default = default
-          timePerWord:70,      //time to show in milliseconds per word
-          hasArrow:false,     // if you whant a little arrow on the corner
-          hasShadow:true,
-          imgPath:"images/",
-          anchor:"mouse", //"parent"  you can anchor the tooltip to the mouse position or at the bottom of the element
-          shadowColor:"black", //the color of the shadow
-          mb_fade:200 //the time to fade-in
-        });
-      });
-    </script>
+  <script>
+  $(function() {
+    var tooltips = $( "[title]" ).tooltip({
+      position: {
+        my: "left",
+        at: "center center",
+        collision: "flipfit"
+      }
+
+    });
+  });
+  </script>
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -205,7 +203,7 @@
                 <fieldset>
                   <legend>Password Parameters</legend>
                   <div class="form-group">
-                    <label for="select1" class="col-lg-4 control-label">Number of Words</label>
+                    <label for="select1" class="col-lg-4 control-label" title="Number of Words that will be included in the Passphrase">Number of Words</label>
                     <div class="col-lg-3">
                       <select required class="form-control" id="select1" name="NumWords" value="<?php echo $NumWords;?>">
           
@@ -223,7 +221,8 @@
                   </div>
 
                   <div class="form-group">
-                    <label class="col-lg-4 control-label">Word Length</label>
+                    <label class="col-lg-4 control-label" title="The minimum and maximum of word lengths used in passphrase.
+                     Note that there is some simple error checking that will force Max=Min+1 if not set appropriately.">Word Length</label>
                     <div class="col-lg-3">
                       <select class="my-form-control" id="WordMin" name="WordLengthMin" value="<?php echo $WordLengthMin;?>">
                         <option <?php if($WordLengthMin==1) echo "selected=\"selected\""; ?>>1</option>
@@ -257,7 +256,7 @@
                   </div>
 
                   <div class="form-group">
-                    <label for="select3" class="col-lg-4 control-label">Number of Numbers</label>
+                    <label for="select3" class="col-lg-4 control-label" title="Number of Numbers to add at the beginning and end of the entire passphrase.">Number of Numbers</label>
                     <div class="col-lg-3">
                       <select class="form-control" id="select3" name="NumNums" value="<?php echo $NumNums;?>">
                         <option <?php if($NumNums==0) echo "selected=\"selected\""; ?>>0</option>
@@ -274,9 +273,9 @@
                       </select>
                     </div>
                   </div>
-                  <p class="text-right my-p">Separator?&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+                  <p class="text-right my-p">Separator&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
                   <div class="form-group">
-                    <label for="NumChars" class="col-lg-4 control-label">Special Characters?</label>
+                    <label for="NumChars" class="col-lg-4 control-label" title="The number of special characters to add at the end of each word in passphrase.">Number of Special Characters</label>
                     <div class="col-lg-3">
                       <select class="form-control" id="NumChars" name="NumChars" value="<?php echo $NumChars;?>">
                         <option <?php if($NumChars==0) echo "selected=\"selected\""; ?>>0</option>
@@ -293,7 +292,7 @@
                       </select>
                     </div>
                       <div class="col-lg-3 col-lg-offset-2">
-                        <select class="my-form-control" id="Separator" name="Separator" value="<?php echo $Separator;?>">
+                        <select class="my-form-control" id="Separator" name="Separator" title="Type of separator to use between words in passphrase." value="<?php echo $Separator;?>">
                           <option <?php if($Separator== "-") echo "selected=\"selected\""; ?>>-</option>
                           <option <?php if($Separator== "&nbsp;") echo "selected=\"selected\""; ?>>&nbsp;</option>
                           <option <?php if($Separator== "_") echo "selected=\"selected\""; ?>>_</option>
@@ -301,7 +300,8 @@
                       </div>
                   </div>
                   <div class="form-group">
-                    <label class="col-lg-10 control-label">Capitalization Options<span class="error"> <?php echo "&nbsp;$CapWordsErr";?></span></label>
+                    <label class="col-lg-10 control-label" title="Choose between all uppercase, all lowercase, or just capitalizing the first letter of each word">
+                          Capitalization Options<span class="error"> <?php echo "&nbsp;$CapWordsErr";?></span></label>
                     
                     <div class="col-lg-10">
                       <div class="radio">
