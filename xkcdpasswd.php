@@ -6,7 +6,7 @@ function sorty($a,$b){
 }
 
 
-function generate_password($NumWords, $separator, $NumNums, $WordLengthMin, $WordLengthMax, $CapFirstLetter,$SpecialChars){
+function generate_password($NumWords, $separator, $NumNums, $WordLengthMin, $WordLengthMax, $CapWords, $SpecialChars){
 	require 'google10kwordlist.php';
 
 	$specialchar_array = array('~','`','!','@','#','$','%','^','&','*','(',')','_','-','+','=','[',']','{','}','|','\\',':',';','"','\'','<',',','>','.');
@@ -39,8 +39,10 @@ function generate_password($NumWords, $separator, $NumNums, $WordLengthMin, $Wor
 	}
 	for ($i=0;$i<$NumWords-1;$i++){
 		$randindex =  rand ($MaxIndex, $MinIndex);
-		if ($CapFirstLetter=="Yes")
+		if ($CapWords=="FirstLetterCap")
 			$pass[$i]=ucfirst($wordlist[$randindex]);
+		else if ($CapWords=="UpperCase")
+			$pass[$i]=strtoupper($wordlist[$randindex]);
 		else
 			$pass[$i]=$wordlist[$randindex];
 
@@ -54,8 +56,10 @@ function generate_password($NumWords, $separator, $NumNums, $WordLengthMin, $Wor
 	}
 	// to prevent the trailing separator, loop only count()-1 and inline the last word without the separator
 	$randindex =  rand ($MaxIndex, $MinIndex);
-	if ($CapFirstLetter=="Yes")
+	if ($CapWords=="FirstLetterCap")
 		$pass[$i]=ucfirst($wordlist[$randindex]);
+	else if ($CapWords=="UpperCase")
+		$pass[$i]=strtoupper($wordlist[$randindex]);
 	else
 		$pass[$i]=$wordlist[$randindex];
 

@@ -88,24 +88,33 @@
         <!-- Headings -->
 
         <div class="row">
-          <div class="col-lg-14">
-              <h2>Web App Description</h2>
-                <p class="text-warning">  This web application implements the xkcd password generation function as described by various websites using PHP as the backend language
-                                          and HTML/CSS for the front end language for the form input/parameters and display of generated passwords.</p>
-                <h3>Bootstrap</h3>
-                  <p class="text-info">   A simple, single flat page was employed using the following free bootstrap template called Bootswatch designed by Thomas Park with the source URL located here
-                                          <a href="http://bootswatch.com/slate/">Slate Bootswatch Theme</a>. The free theme looked contemporary and the form inputs were very appealing
-                                          for this assignment.</p>
-                <h3>Form Inputs</h3>
-                  <p class="text-danger"> Initially, I used &lt;select&gt; dropdown input methods to select the number of words and number but as it forced them inputs as integer, I changed
-                                          to text input to implement some error checking functionality. I also removed default checked values for the radio buttons again to implement the error
-                                          checking functionality.</p>
+            <div class="col-lg-14">
+              <div class="well">
+                <h2>What is an xkcd Password Generator?</h2>
+                  <p class="text-info">   An xkcd Password Generator is a type of password generator that attempts to create memorable passwords for humans that are also difficult for
+                                            computers to guess. The basic argument behind the strength of the password is that a longer password will have more entropy than a shorter password
+                                            independent of the characters use as a computer does not care if the password contains actual words or not.</p>
+              </div>
+              <div class="well">              
+                <h2>Web App Description</h2>
+                  <p class="text-warning">  This web application implements the xkcd password generation function as described by various websites using PHP as the backend language
+                                            and HTML/CSS for the front end language for the form input/parameters and display of generated passwords. There is also some javascript and
+                                            jQuery added in for some visual effects.</p>
+                  <h3>Bootstrap</h3>
+                    <p class="text-danger">   A simple, single flat page was employed using the following free bootstrap template called Bootswatch designed by Thomas Park with the source URL located here
+                                            <a href="http://bootswatch.com/slate/">Slate Bootswatch Theme</a>. The free theme looked contemporary and the form inputs were very appealing
+                                            for this assignment.</p>
+                  <h3>Form Inputs</h3>
+                    <p class="text-success"> Initially, I used &lt;select&gt; dropdown input methods to select the number of words and number but as it forced them inputs as integer, I changed
+                                            to text input to implement some error checking functionality. I also removed default checked values for the radio buttons again to implement the error
+                                            checking functionality.</p>
 
-                <h3>Wordlist</h3>
-                  <p class="text-success"> Initially I started with a large wordlist with 100k words that had many variants of words such as contractions and possesives.
-                                          This took processing time to load and required manual adjustment such as removing the apostrophes to simplify the code and fix errors.
-                                          Therefore, I found a Google wordlist with 10k words which was more manageable to work with. The source URL for the Google wordlist is located here
-                                          <a href="https://github.com/first20hours/google-10000-english">Google 10k Wordlist</a>.</p>
+                  <h3>Wordlist</h3>
+                    <p class="text-primary"> Initially I started with a large wordlist with 100k words that had many variants of words such as contractions and possesives.
+                                            This took processing time to load and required manual adjustment such as removing the apostrophes to simplify the code and fix errors.
+                                            Therefore, I found a Google wordlist with 10k words which was more manageable to work with. The source URL for the Google wordlist is located here
+                                            <a href="https://github.com/first20hours/google-10000-english">Google 10k Wordlist</a>.</p>
+              </div>
           </div>
         </div>
       </div>
@@ -123,8 +132,8 @@
 
 
     <?php
-      $NumWordsErr = $NumNumsErr = $WordLengthMinErr = $WordLengthMaxErr = $SpecialCharsErr = $CapFirstLetterErr = $SeparatorErr = "";
-      $NumWords = $NumNums = $WordLengthMin = $WordLengthMax = $SpecialChars = $CapFirstLetter = $Separator = "";
+      $NumWordsErr = $NumNumsErr = $WordLengthMinErr = $WordLengthMaxErr = $SpecialCharsErr = $CapWordsErr = $SeparatorErr = "";
+      $NumWords = $NumNums = $WordLengthMin = $WordLengthMax = $SpecialChars = $CapWords = $Separator = "";
   
       if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
@@ -171,10 +180,10 @@
             $WordLengthMax = $WordLengthMin+1;
         }
 
-        if (empty($_POST["CapFirstLetter"])) {
-          $CapFirstLetterErr = "* Must Choose Yes or No";
+        if (empty($_POST["CapWords"])) {
+          $CapWordsErr = "* Must Choose a Value";
         } else {
-          $CapFirstLetter = test_input($_POST["CapFirstLetter"]);
+          $CapWords = test_input($_POST["CapWords"]);
         }
       }
 
@@ -290,18 +299,20 @@
                       </div>
                   </div>
                   <div class="form-group">
-                    <label class="col-lg-4 control-label">Capitalize First Letter?</label>
+                    <label class="col-lg-10 control-label">Capitalize First Letter?<span class="error"> <?php echo "&nbsp;$CapWordsErr";?></span></label>
+                    
                     <div class="col-lg-10">
                       <div class="radio">
                         <label>
-                          <input type="radio" id="CapFirstLetter" name="CapFirstLetter" <?php echo $CapFirstLetter; if (isset($CapFirstLetter) && $CapFirstLetter=="Yes")
-                                                                                                                        echo "checked";?> value="Yes">Yes</label>
-                      </div>
-                      <div class="radio">
+                          <input type="radio" id="CapWords" name="CapWords" <?php echo $CapWords; if (isset($CapWords) && $CapWords=="UpperCase")
+                                                                                                                        echo "checked";?> value="UpperCase">All Uppercase</label>
+
                         <label>
-                          <input type="radio" id="CapFirstLetter" name="CapFirstLetter" <?php echo $CapFirstLetter; if (isset($CapFirstLetter) && $CapFirstLetter=="No")
-                                                                                                                        echo "checked";?> value="No">No</label>
-                        <span class="error"> <?php echo $CapFirstLetterErr;?></span>
+                          <input type="radio" id="CapWords" name="CapWords" <?php echo $CapWords; if (isset($CapWords) && $CapWords=="FirstLetterCap")
+                                                                                                                        echo "checked";?> value="FirstLetterCap">Only First Letter Uppercase</label>
+                        <label>
+                          <input type="radio" id="CapWords" name="CapWords" <?php echo $CapWords; if (isset($CapWords) && $CapWords=="LowerCase")
+                                                                                                                        echo "checked";?> value="LowerCase">All Lowercase</label>
                       </div>
                     </div>
                   </div>
@@ -323,27 +334,27 @@
                 <legend>Password Outputs<legend>
                 <br>
                 <div class="form-group">
-                  <label class="control-label">Password 1</label>
+                  <label class="control-label text-warning">Password 1</label>
                   <input type="text"  class="form-control" id="inputDefault" value ="<?php if ( isset( $_POST['submit'] ) ) {
-                                                    print_r(generate_password($NumWords,$Separator,$NumNums,$WordLengthMin,$WordLengthMax,$CapFirstLetter,$SpecialChars));} ?>">
+                                                    print_r(generate_password($NumWords,$Separator,$NumNums,$WordLengthMin,$WordLengthMax,$CapWords,$SpecialChars));} ?>">
                 </div>
 
                 <div class="form-group">
-                  <label class="control-label">Password 2</label>
+                  <label class="control-label text-info">Password 2</label>
                   <input type="text" class="form-control" id="inputDefault" value ="<?php if ( isset( $_POST['submit'] ) ) {
-                                                    print_r(generate_password($NumWords,$Separator,$NumNums,$WordLengthMin,$WordLengthMax,$CapFirstLetter,$SpecialChars));} ?>">
+                                                    print_r(generate_password($NumWords,$Separator,$NumNums,$WordLengthMin,$WordLengthMax,$CapWords,$SpecialChars));} ?>">
                 </div>
 
                 <div class="form-group">
-                  <label class="control-label">Password 3</label>
+                  <label class="control-label text-danger">Password 3</label>
                   <input type="text" class="form-control" id="inputDefault" value ="<?php if ( isset( $_POST['submit'] ) ) {
-                                                    print_r(generate_password($NumWords,$Separator,$NumNums,$WordLengthMin,$WordLengthMax,$CapFirstLetter,$SpecialChars));} ?>">
+                                                    print_r(generate_password($NumWords,$Separator,$NumNums,$WordLengthMin,$WordLengthMax,$CapWords,$SpecialChars));} ?>">
                 </div>
 
                 <div class="form-group">
-                  <label class="control-label">Password 4</label>
+                  <label class="control-label text-success">Password 4</label>
                   <input type="text" class="form-control" id="inputDefault" value ="<?php if ( isset( $_POST['submit'] ) ) {
-                                                    print_r(generate_password($NumWords,$Separator,$NumNums,$WordLengthMin,$WordLengthMax,$CapFirstLetter,$SpecialChars));} ?>">
+                                                    print_r(generate_password($NumWords,$Separator,$NumNums,$WordLengthMin,$WordLengthMax,$CapWords,$SpecialChars));} ?>">
                 </div>
               </fieldset>
             </div>
@@ -354,7 +365,7 @@
       <?php
 
       //$passout=generate_password($NumWords,$Separator,$NumNums,$WordLengthMin,$WordLengthMax);
-      $passout=generate_password($NumWords,$Separator,$NumNums,3,6,$CapFirstLetter,$SpecialChars);
+      $passout=generate_password($NumWords,$Separator,$NumNums,3,6,$CapWords,$SpecialChars);
       echo "NumWords = $NumWords";
       echo "NumNums = $NumNums";
       //print_r($passout);
@@ -387,36 +398,27 @@
 
     </div>
 
-
     <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
     <script src="bootstrap.min.js"></script>
     <script src="bootswatch.js"></script>
 
+    <?php
+      $scrollx = 0;
+      $scrolly = 0;
 
-<?php
+      if(!empty($_REQUEST['scrollx'])) {
+        $scrollx = $_REQUEST['scrollx'];
 
-$scrollx = 0;
-$scrolly = 0;
+      }
 
-if(!empty($_REQUEST['scrollx'])) {
+      if(!empty($_REQUEST['scrolly'])) {
+        $scrolly = $_REQUEST['scrolly'];
+      }
+    ?>
 
-$scrollx = $_REQUEST['scrollx'];
-
-}
-
-if(!empty($_REQUEST['scrolly'])) {
-
-$scrolly = $_REQUEST['scrolly'];
-
-}
-
-?>
-
-<script type="text/javascript">
-
-window.scrollTo(<?php echo "$scrollx" ?>, <?php echo "$scrolly" ?>);
-
-</script>
+    <script type="text/javascript">
+      window.scrollTo(<?php echo "$scrollx" ?>, <?php echo "$scrolly" ?>);
+    </script>
 
   </body>
 </html>
