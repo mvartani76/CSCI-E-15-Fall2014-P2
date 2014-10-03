@@ -12,12 +12,14 @@ function generate_password($NumWords, $separator, $NumNums, $WordLengthMin, $Wor
 	// sort the wordlist by length of word - longest to shortest
 	usort($wordlist,"sorty");
 
+	// find the index position where the maximum word length is found
 	for ($i=0;$i<count($wordlist);$i++){
 		if (strlen($wordlist[$i])<=$WordLengthMax)
 			break;
 	}
 	$MaxIndex = $i;
 
+	// find the index position where the minimum word length is found
 	for ($i=$MaxIndex;$i<count($wordlist);$i++){
 		if (strlen($wordlist[$i])<$WordLengthMin)
 			break;
@@ -52,10 +54,6 @@ function generate_password($NumWords, $separator, $NumNums, $WordLengthMin, $Wor
 		$passout .= rand(0,9);
 	}
 
-//$sorted = usort($wordlist,"sorty");
-	//print_r($sorted);
-	//print_r($wordlist);
-	//echo $randindex;
 	return $passout;
 }
 
